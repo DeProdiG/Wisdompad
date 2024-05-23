@@ -98,6 +98,8 @@
             boldBtn = new ToolStripButton();
             underlineBtn = new ToolStripButton();
             clearBtn = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            helpToolStripButton = new ToolStripButton();
             statusStrip1 = new StatusStrip();
             statusLabel = new ToolStripStatusLabel();
             rtbText = new RichTextBox();
@@ -106,8 +108,6 @@
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
             colorDialog2 = new ColorDialog();
-            toolStripSeparator1 = new ToolStripSeparator();
-            helpToolStripButton = new ToolStripButton();
             contextMenuStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -655,6 +655,21 @@
             clearBtn.Text = "Clear Formatting";
             clearBtn.Click += clearBtn_Click;
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 27);
+            // 
+            // helpToolStripButton
+            // 
+            helpToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            helpToolStripButton.Image = (Image)resources.GetObject("helpToolStripButton.Image");
+            helpToolStripButton.ImageTransparentColor = Color.Magenta;
+            helpToolStripButton.Name = "helpToolStripButton";
+            helpToolStripButton.Size = new Size(24, 24);
+            helpToolStripButton.Text = "He&lp";
+            helpToolStripButton.Click += helpToolStripButton_Click_1;
+            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
@@ -670,8 +685,8 @@
             // 
             statusLabel.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(56, 21);
-            statusLabel.Text = "Ready.";
+            statusLabel.Size = new Size(64, 21);
+            statusLabel.Text = "R ead y.";
             statusLabel.Click += statusLabel_Click;
             // 
             // rtbText
@@ -689,21 +704,6 @@
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 27);
-            // 
-            // helpToolStripButton
-            // 
-            helpToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            helpToolStripButton.Image = (Image)resources.GetObject("helpToolStripButton.Image");
-            helpToolStripButton.ImageTransparentColor = Color.Magenta;
-            helpToolStripButton.Name = "helpToolStripButton";
-            helpToolStripButton.Size = new Size(24, 24);
-            helpToolStripButton.Text = "He&lp";
-            helpToolStripButton.Click += helpToolStripButton_Click_1;
             // 
             // Form1
             // 
