@@ -18,8 +18,8 @@ namespace Wisdompad
         public Author()
         {
             InitializeComponent();
-            _mainForm = new Form1(); // Initialize the second form
-            _mainForm.Hide(); // Initially hide the second form
+            _mainForm = new Form1(); 
+            _mainForm.Hide(); 
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -34,8 +34,8 @@ namespace Wisdompad
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide the main form
-            _mainForm.Show(); // Show the second form
+            this.Hide(); 
+            _mainForm.Show();
         }
     }
 }

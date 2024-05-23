@@ -12,7 +12,6 @@ namespace Wisdompad
             this.FormClosing += Form1_FormClosing;
             UpdateUndoRedoStatus();
         }
-        /* Глобална променлива за File Menu*/
         string filePath = "";
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -28,22 +27,22 @@ namespace Wisdompad
                     rtbText.LoadFile(filePath, RichTextBoxStreamType.PlainText);
                     statusLabel.Text = "Loaded file: " + filePath;
                 }
-                catch (FileNotFoundException) /*Улавя случаи, когато файлът не може да бъде намерен.*/
+                catch (FileNotFoundException) 
                 {
                     MessageBox.Show("File not found.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (UnauthorizedAccessException) /*: Улавя случаи на липса на права за достъп до файла.*/
+                catch (UnauthorizedAccessException) 
                 {
                     MessageBox.Show("You don't currently have the permission to access this file.",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (IOException ex) /*Улавя грешки при четене на файла (включително проблеми със самия файл).*/
+                catch (IOException ex) 
                 {
                     MessageBox.Show("Error reading from the file:" + ex.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex) /*Улавя всички други неочаквани изключения.*/
+                catch (Exception ex) 
                 {
                     MessageBox.Show("An unexpected error occurred:" + ex.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -150,7 +149,7 @@ namespace Wisdompad
             {
                 bool hasUnsavedChanges = false;
 
-                // Проверка за незаписани промени
+                
                 if (string.IsNullOrEmpty(filePath) && !string.IsNullOrEmpty(rtbText.Text))
                 {
                     hasUnsavedChanges = true;
@@ -164,7 +163,6 @@ namespace Wisdompad
                     }
                 }
 
-                // Ако има незаписани промени, попитайте потребителя дали иска да ги запази
                 if (hasUnsavedChanges)
                 {
                     DialogResult result = MessageBox.Show("You have unsaved changes. Do you want to save before creating a new document?",
@@ -173,7 +171,7 @@ namespace Wisdompad
                     if (result == DialogResult.Yes)
                     {
                         saveToolStripMenuItem_Click(sender, e);
-                        if (string.IsNullOrEmpty(filePath)) // ако запазването е отменено
+                        if (string.IsNullOrEmpty(filePath)) 
                         {
                             return;
                         }
@@ -184,12 +182,10 @@ namespace Wisdompad
                     }
                 }
 
-                // Изчистване на съдържанието за нов документ
                 rtbText.Clear();
                 filePath = string.Empty;
                 statusLabel.Text = "New file made.";
 
-                // Обновяване на заглавието на формата
                 this.Text = "Untitled - Text Editor";
             }
             catch (Exception ex)
@@ -238,7 +234,7 @@ namespace Wisdompad
                     if (result == DialogResult.Yes)
                     {
                         saveToolStripMenuItem_Click(sender, e);
-                        if (string.IsNullOrEmpty(filePath)) // if save was cancelled
+                        if (string.IsNullOrEmpty(filePath)) 
                         {
                             return;
                         }
@@ -398,26 +394,21 @@ namespace Wisdompad
         {
             if (rtbText.SelectionLength > 0)
             {
-                // Ако е избран текст, променяме форматирането само на избрания текст
                 int selectionStart = rtbText.SelectionStart;
                 int selectionLength = rtbText.SelectionLength;
 
-                // Изтриваме форматирането на избрания текст
                 rtbText.SelectionFont = rtbText.Font;
                 rtbText.SelectionColor = rtbText.ForeColor;
 
-                // Възстановяваме позицията и дължината на избрания текст
                 rtbText.Select(selectionStart, selectionLength);
             }
             else
             {
-                // Ако няма избран текст, променяме форматирането на целия текст
                 rtbText.SelectAll();
                 rtbText.SelectionFont = rtbText.Font;
                 rtbText.SelectionColor = rtbText.ForeColor;
             }
 
-            // Премахваме избора на текст, за да не се селектира нищо след изтриването на форматирането
             rtbText.SelectionLength = 0;
         }
 

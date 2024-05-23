@@ -30,13 +30,12 @@ namespace Wisdompad
                     int startIndex = rtbText.SelectionStart + rtbText.SelectionLength;
                     if (startIndex >= rtbText.TextLength)
                     {
-                        startIndex = 0; // Start from the beginning if we are at the end
+                        startIndex = 0; 
                     }
 
                     int wordStartIndex = rtbText.Find(findText, startIndex, RichTextBoxFinds.None);
                     if (wordStartIndex == -1 && startIndex != 0)
                     {
-                        // If not found, start from the beginning
                         wordStartIndex = rtbText.Find(findText, 0, RichTextBoxFinds.None);
                     }
 
@@ -73,11 +72,11 @@ namespace Wisdompad
                     return;
                 }
 
-                int startIndex = rtbText.SelectionStart - 1; // Start searching from just before the current selection
+                int startIndex = rtbText.SelectionStart - 1; 
 
                 if (startIndex < 0)
                 {
-                    startIndex = rtbText.TextLength - 1; // Start from the end if we are at the beginning
+                    startIndex = rtbText.TextLength - 1;
                 }
 
                 int wordStartIndex = rtbText.Find(findText, 0, startIndex, RichTextBoxFinds.Reverse);
