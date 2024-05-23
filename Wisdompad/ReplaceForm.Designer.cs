@@ -146,7 +146,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ReplaceForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ReplaceForm";
+            Text = "Replace Form";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -98,7 +98,7 @@
             Controls.Add(lblFind);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FindForm";
-            Text = "FindForm";
+            Text = "Find Form";
             ResumeLayout(false);
             PerformLayout();
         }
