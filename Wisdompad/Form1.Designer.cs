@@ -685,8 +685,8 @@
             // 
             statusLabel.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(60, 21);
-            statusLabel.Text = "R eady.";
+            statusLabel.Size = new Size(56, 21);
+            statusLabel.Text = "Ready.";
             statusLabel.Click += statusLabel_Click;
             // 
             // rtbText
